@@ -1,7 +1,7 @@
 # AlarmClock
 
 #### 介绍
-当前版本1.0,jar包在out/artifacts/AlarmClock_jar/目录下,使用JDK8开发,建议用IDEA查看源码
+当前版本1.0,jar包在out/artifacts目录下,使用JDK8开发,建议用IDEA查看源码
 
 #### 软件架构
 软件架构说明
