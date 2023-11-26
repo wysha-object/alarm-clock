@@ -3,7 +3,7 @@
  * 开发者邮箱：wyshazhisishen@yeah.net
  */
 
-package date;
+package data;
 
 import alarm.Alarm;
 
@@ -12,9 +12,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WrittenDate implements Serializable {
+public class WrittenData implements Serializable {
     public static final File file = new File("AlarmClockData.");
-    public static WrittenDate writtenDate = new WrittenDate();
+    public static WrittenData writtenData = new WrittenData();
     public final List<Alarm> alarms = new ArrayList<>();
     public final Setting setting = new Setting();
     public final Style[] styles = new Style[4];

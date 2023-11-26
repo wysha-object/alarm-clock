@@ -6,7 +6,7 @@
 package main;
 
 import alarm.Alarm;
-import date.WrittenDate;
+import data.WrittenData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +24,7 @@ public class GetAlarm extends JPanel {
         add(contentPane);
         jLabel.setText(alarm.toString());
         delete.addActionListener(e -> {
-            WrittenDate.writtenDate.alarms.remove(alarm);
+            WrittenData.writtenData.alarms.remove(alarm);
             MainInterface.home.flush();
         });
         edit.addActionListener(e -> {
@@ -47,6 +47,6 @@ public class GetAlarm extends JPanel {
         buttons.add(checkBox);
         buttons.add(edit);
         buttons.add(delete);
-        date.Style.setStyle(jPanels,buttons,null);
+        data.Style.setStyle(jPanels,buttons,null);
     }
 }

@@ -3,7 +3,7 @@
  * 开发者邮箱:wyshazhisishen@yeah.net
  */
 
-package date;
+package data;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -16,10 +16,10 @@ public class Setting implements Serializable {
     public Font font;
 
     public static void setStyle(Style style) {
-        WrittenDate.writtenDate.setting.style = style;
-        WrittenDate.writtenDate.setting.jPanelBackground = style.jPanelBackground;
-        WrittenDate.writtenDate.setting.foreground = style.foreground;
-        WrittenDate.writtenDate.setting.background = style.background;
-        WrittenDate.writtenDate.setting.font = style.font;
+        WrittenData.writtenData.setting.style = style;
+        WrittenData.writtenData.setting.jPanelBackground = style.jPanelBackground;
+        WrittenData.writtenData.setting.foreground = style.foreground;
+        WrittenData.writtenData.setting.background = style.background;
+        WrittenData.writtenData.setting.font = style.font;
     }
 }

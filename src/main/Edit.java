@@ -144,6 +144,6 @@ public class Edit extends JDialog {
         buttons.add(musicPath);
         buttons.add(buttonOK);
         buttons.add(buttonCancel);
-        date.Style.setStyle(jPanels,buttons,null);
+        data.Style.setStyle(jPanels,buttons,null);
     }
 }

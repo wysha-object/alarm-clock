@@ -3,7 +3,7 @@
  * 开发者邮箱:wyshazhisishen@yeah.net
  */
 
-package date;
+package data;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,25 +33,25 @@ public final class Style implements Serializable {
     public static void setStyle(HashSet<JComponent> jPanels, HashSet<JComponent> buttons, HashSet<JList<?>> jLists) {
         if (jPanels != null) {
             for (JComponent j : jPanels) {
-                j.setBackground(WrittenDate.writtenDate.setting.jPanelBackground);
-                j.setForeground(WrittenDate.writtenDate.setting.foreground);
-                j.setFont(WrittenDate.writtenDate.setting.font);
+                j.setBackground(WrittenData.writtenData.setting.jPanelBackground);
+                j.setForeground(WrittenData.writtenData.setting.foreground);
+                j.setFont(WrittenData.writtenData.setting.font);
             }
         }
         if (buttons != null) {
             for (JComponent b : buttons) {
-                b.setBackground(WrittenDate.writtenDate.setting.background);
-                b.setForeground(WrittenDate.writtenDate.setting.foreground);
-                b.setFont(WrittenDate.writtenDate.setting.font);
+                b.setBackground(WrittenData.writtenData.setting.background);
+                b.setForeground(WrittenData.writtenData.setting.foreground);
+                b.setFont(WrittenData.writtenData.setting.font);
             }
         }
         if (jLists != null) {
             for (JList<?> jList : jLists) {
-                jList.setBackground(WrittenDate.writtenDate.setting.background);
-                jList.setForeground(WrittenDate.writtenDate.setting.foreground);
-                jList.setFont(WrittenDate.writtenDate.setting.font);
-                jList.setSelectionBackground(WrittenDate.writtenDate.setting.foreground);
-                jList.setSelectionForeground(WrittenDate.writtenDate.setting.jPanelBackground);
+                jList.setBackground(WrittenData.writtenData.setting.background);
+                jList.setForeground(WrittenData.writtenData.setting.foreground);
+                jList.setFont(WrittenData.writtenData.setting.font);
+                jList.setSelectionBackground(WrittenData.writtenData.setting.foreground);
+                jList.setSelectionForeground(WrittenData.writtenData.setting.jPanelBackground);
             }
         }
     }

@@ -5,8 +5,8 @@
 
 package alarm;
 
-import date.Style;
-import date.WrittenDate;
+import data.Style;
+import data.WrittenData;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -27,7 +27,7 @@ public class Alarm extends Thread implements Serializable {
     private transient Clip clip;
 
     public Alarm(String name, byte hour, byte minute, boolean[] dayOfWeek, String path) {
-        for (Alarm a : WrittenDate.writtenDate.alarms) {
+        for (Alarm a : WrittenData.writtenData.alarms) {
             if (a.name.equals(name)) {
                 throw new RuntimeException("闹钟名重复");
             }
@@ -40,7 +40,7 @@ public class Alarm extends Thread implements Serializable {
             this.dayOfWeek[i] = b;
         }
         this.path = path;
-        WrittenDate.writtenDate.alarms.add(this);
+        WrittenData.writtenData.alarms.add(this);
         enable = true;
         start();
     }
@@ -73,7 +73,7 @@ public class Alarm extends Thread implements Serializable {
 
     @Override
     public void run() {
-        while (WrittenDate.writtenDate.alarms.contains(this)) {
+        while (WrittenData.writtenData.alarms.contains(this)) {
             for (int i = 0; i < dayOfWeek.length; i++) {
                 Calendar now = Calendar.getInstance();
                 int weekDay = now.get(Calendar.DAY_OF_WEEK);

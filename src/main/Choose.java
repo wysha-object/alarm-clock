@@ -5,7 +5,7 @@
 
 package main;
 
-import date.Style;
+import data.Style;
 
 import javax.swing.*;
 import java.util.HashSet;

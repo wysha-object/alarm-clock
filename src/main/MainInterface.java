@@ -6,9 +6,9 @@
 package main;
 
 import alarm.Alarm;
-import date.Setting;
-import date.Style;
-import date.WrittenDate;
+import data.Setting;
+import data.Style;
+import data.WrittenData;
 import set.WrittenSet;
 
 import javax.swing.*;
@@ -20,8 +20,8 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.util.HashSet;
 
-import static date.WrittenDate.file;
-import static date.WrittenDate.writtenDate;
+import static data.WrittenData.file;
+import static data.WrittenData.writtenData;
 
 public class MainInterface extends JFrame {
     private JPanel jPanel;
@@ -43,42 +43,42 @@ public class MainInterface extends JFrame {
     public MainInterface(){
         try {
             if (file.exists()){
-                WrittenDate.writtenDate= (WrittenDate) new ObjectInputStream(Files.newInputStream(file.toPath())).readObject();
-                for (Alarm alarm:writtenDate.alarms){
+                WrittenData.writtenData = (WrittenData) new ObjectInputStream(Files.newInputStream(file.toPath())).readObject();
+                for (Alarm alarm: writtenData.alarms){
                     if (alarm.enable){
                         alarm.start();
                     }
                 }
             }else {
-                writtenDate.styles[0]=new date.Style(
+                writtenData.styles[0]=new data.Style(
                         "炫酷白",
                         new Color(0,0,0),
                         new Color(251,251,251),
                         new Color(255,255,255),
                         new Font("Microsoft YaHei UI Light",Font.PLAIN,14)
                 );
-                writtenDate.styles[1]=new date.Style(
+                writtenData.styles[1]=new data.Style(
                         "酷炫黑",
                         new Color(255,255,255),
                         new Color(31,31,31),
                         new Color(0,0,0),
                         new Font("Microsoft YaHei UI Light",Font.PLAIN,14)
                 );
-                writtenDate.styles[2]=new date.Style(
+                writtenData.styles[2]=new data.Style(
                         "酷炫灰",
                         new Color(255,255,255),
                         new Color(63,63,63),
                         new Color(127,127,127),
                         new Font("Microsoft YaHei UI Light",Font.PLAIN,14)
                 );
-                writtenDate.styles[3]=new Style(
+                writtenData.styles[3]=new Style(
                         "高对比度",
                         Color.WHITE,
                         Color.BLACK,
                         Color.BLACK,
                         null
                 );
-                Setting.setStyle(writtenDate.styles[0]);
+                Setting.setStyle(writtenData.styles[0]);
             }
         } catch (Throwable e) {
             new ErrorInterface(
@@ -96,6 +96,7 @@ public class MainInterface extends JFrame {
         );
         setLocationRelativeTo(null);
         addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent E) {
                 close();
             }
@@ -130,7 +131,7 @@ public class MainInterface extends JFrame {
 
     public static void close() {
         try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(file.toPath()))) {
-            oos.writeObject(WrittenDate.writtenDate);
+            oos.writeObject(WrittenData.writtenData);
         } catch (Exception e) {
             ErrorInterface error = new ErrorInterface("无法保存",e,false);
             error.setVisible(true);
@@ -145,9 +146,9 @@ public class MainInterface extends JFrame {
         for (GetAlarm getAlarm : getAlarms){
             alarmList.remove(getAlarm);
         }
-        getAlarms =new GetAlarm[WrittenDate.writtenDate.alarms.size()];
+        getAlarms =new GetAlarm[WrittenData.writtenData.alarms.size()];
         for (int i = 0; i< getAlarms.length; i++){
-            getAlarms[i]=new GetAlarm(WrittenDate.writtenDate.alarms.get(i));
+            getAlarms[i]=new GetAlarm(WrittenData.writtenData.alarms.get(i));
         }
         for (GetAlarm getAlarm:getAlarms){
             alarmList.add(getAlarm);
@@ -170,6 +171,6 @@ public class MainInterface extends JFrame {
         buttons.add(rightJLabel);
         buttons.add(leftJLabel);
         buttons.add(flush);
-        date.Style.setStyle(jPanels,buttons,null);
+        data.Style.setStyle(jPanels,buttons,null);
     }
 }

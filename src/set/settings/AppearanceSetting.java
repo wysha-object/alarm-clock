@@ -5,9 +5,9 @@
 
 package set.settings;
 
-import date.Setting;
-import date.Style;
-import date.WrittenDate;
+import data.Setting;
+import data.Style;
+import data.WrittenData;
 
 import javax.swing.*;
 import java.util.HashSet;
@@ -22,8 +22,8 @@ public class AppearanceSetting extends Settings {
     public AppearanceSetting(JDialog jDialog) {
         super(AppearanceSetting.class.toString(),jDialog);
         setStyle();
-        comboBox.setModel(new  DefaultComboBoxModel<>(WrittenDate.writtenDate.styles));
-        comboBox.setSelectedItem(WrittenDate.writtenDate.setting.style);
+        comboBox.setModel(new  DefaultComboBoxModel<>(WrittenData.writtenData.styles));
+        comboBox.setSelectedItem(WrittenData.writtenData.setting.style);
     }
     @Override
     public void onCancel() {

@@ -5,7 +5,7 @@
 
 package set;
 
-import date.Style;
+import data.Style;
 import main.Choose;
 import set.settings.AppearanceSetting;
 import set.settings.DefaultPage;
