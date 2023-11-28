@@ -1,28 +1,29 @@
 # AlarmClock
 
-#### 介绍
-当前主版本号1.0;<br/>
-内部版本号1.0(当前主版本号).0/0(当前主版本开发阶段).0(当前主版本总上传更新次数);<br/>
-使用JDK8开发,建议用IDEA查看源码.
+## 介绍
 
-#### 软件架构
-软件架构说明
-无
+### 当前版本号:
 
-#### 安装教程
+    0.0.0
 
-1.  jar包在out/artifacts目录下
+### SDK:
 
-#### 使用说明
+#### JDK:
 
-1.  无
+    8
 
-#### 参与贡献
+### 建议的操作系统：
 
-1.  wyshazhisishen@yeah.net
+    Windows 11
 
+### 开发工具:
 
-#### 特技
+    IntelliJ IDEA (Ultimate Edition)
 
-1.  无
+## 安装教程
 
+    1.jar包在out/artifacts目录下
+
+## 参与贡献
+
+    1.wyshazhisishen@yeah.net

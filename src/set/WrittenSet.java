@@ -1,27 +1,26 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱:wyshazhisishen@yeah.net
- */
 
 package set;
 
 import data.Style;
 import main.Choose;
+import set.settings.AbstractSettings;
 import set.settings.AppearanceSetting;
 import set.settings.DefaultPage;
-import set.settings.Settings;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashSet;
 
+/**
+ * @author wysha
+ */
 public class WrittenSet extends JDialog {
     final CardLayout cardLayout=new CardLayout();
     private JPanel contentPane;
     private JButton style;
-    private JButton buttonOK;
+    private JButton buttonOkay;
     private JPanel right;
-    private Settings current;
+    private AbstractSettings current;
     final DefaultPage defaultPage=new DefaultPage(this);
     final AppearanceSetting appearanceSetting =new AppearanceSetting(this);
     private JButton buttonCancel;
@@ -34,9 +33,9 @@ public class WrittenSet extends JDialog {
         right.add(defaultPage.contentPane,defaultPage.name);
         right.add(appearanceSetting.contentPane,appearanceSetting.name);
         setCurrent(defaultPage);
-        buttonOK.addActionListener(ee -> {
+        buttonOkay.addActionListener(ee -> {
             if (current!=defaultPage){
-                current.onOK();
+                current.onOkay();
             }
         });
         buttonCancel.addActionListener(ee -> defaultPage.onCancel());
@@ -44,14 +43,14 @@ public class WrittenSet extends JDialog {
         setTitle("核心设置");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setStyle();
-        buttonOK.addActionListener(ee -> dispose());
+        buttonOkay.addActionListener(ee -> dispose());
         buttonCancel.addActionListener(ee -> dispose());
         style.addActionListener(e -> setCurrent(appearanceSetting));
-        buttonOK.addActionListener(e -> current.onOK());
+        buttonOkay.addActionListener(e -> current.onOkay());
         buttonCancel.addActionListener(e -> current.onCancel());
     }
 
-    private void setCurrent(Settings set){
+    private void setCurrent(AbstractSettings set) {
         if (current != set){
             if (current!=defaultPage&&current!=null){
                 Choose choose=new Choose("是否保存设置");
@@ -73,7 +72,7 @@ public class WrittenSet extends JDialog {
         jPanels.add(down);
         jPanels.add(right);
         buttons.add(style);
-        buttons.add(buttonOK);
+        buttons.add(buttonOkay);
         buttons.add(buttonCancel);
         Style.setStyle(jPanels,buttons,null);
     }

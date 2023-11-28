@@ -1,13 +1,12 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱:wyshazhisishen@yeah.net
- */
 
 package data;
 
 import java.awt.*;
 import java.io.Serializable;
 
+/**
+ * @author wysha
+ */
 public class Setting implements Serializable {
     public Style style;
     public Color jPanelBackground;

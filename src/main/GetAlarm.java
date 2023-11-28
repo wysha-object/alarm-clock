@@ -1,7 +1,3 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱：wyshazhisishen@yeah.net
- */
 
 package main;
 
@@ -12,6 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.HashSet;
 
+/**
+ * @author wysha
+ */
 public class GetAlarm extends JPanel {
     private JPanel contentPane;
     private JCheckBox checkBox;

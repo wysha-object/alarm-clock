@@ -1,7 +1,3 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱：wyshazhisishen@yeah.net
- */
 
 package main;
 
@@ -15,9 +11,12 @@ import java.awt.event.WindowEvent;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * @author wysha
+ */
 public class Edit extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
+    private JButton buttonOkay;
     private JButton buttonCancel;
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
@@ -30,12 +29,12 @@ public class Edit extends JDialog {
             checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7
     };
     private JButton selectAllButton;
-    private JLabel setDayOfWeekJLabel;
+    private JLabel setdayofweekjlabel;
     private JLabel colon;
     private JPanel down;
     private JPanel up;
     private JTextField setName;
-    private JLabel setNameJLabel;
+    private JLabel jLabel;
     private JButton setMusic;
     private JSpinner setMin;
     private JSpinner setH;
@@ -59,13 +58,14 @@ public class Edit extends JDialog {
         setMin.setModel(new SpinnerNumberModel(min, 0, 59, 1));
         setContentPane(contentPane);
         setModal(true);
-        buttonOK.addActionListener(e -> onOK());
+        buttonOkay.addActionListener(e -> onOkay());
 
         buttonCancel.addActionListener(e -> onCancel());
 
         // 点击 X 时调用 onCancel()
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 onCancel();
             }
@@ -103,7 +103,7 @@ public class Edit extends JDialog {
         setStyle();
     }
 
-    private void onOK() {
+    private void onOkay() {
         try {
             int h = (int) setH.getValue();
             int min = (int) setMin.getValue();
@@ -128,21 +128,20 @@ public class Edit extends JDialog {
     }
     public void setStyle() {
         HashSet<JComponent> jPanels = new HashSet<>();
-        HashSet<JComponent> buttons = new HashSet<>();
+        HashSet<JComponent> buttons = new HashSet<>(Arrays.asList(jCheckBoxes));
         jPanels.add(contentPane);
         jPanels.add(up);
         jPanels.add(down);
         buttons.add(colon);
-        buttons.addAll(Arrays.asList(jCheckBoxes));
         buttons.add(setName);
         buttons.add(setH);
         buttons.add(setMin);
         buttons.add(setMusic);
-        buttons.add(setNameJLabel);
-        buttons.add(setDayOfWeekJLabel);
+        buttons.add(jLabel);
+        buttons.add(setdayofweekjlabel);
         buttons.add(selectAllButton);
         buttons.add(musicPath);
-        buttons.add(buttonOK);
+        buttons.add(buttonOkay);
         buttons.add(buttonCancel);
         data.Style.setStyle(jPanels,buttons,null);
     }
