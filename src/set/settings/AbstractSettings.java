@@ -1,24 +1,32 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱:wyshazhisishen@yeah.net
- */
 
 package set.settings;
 
 import javax.swing.*;
 
-public abstract class Settings{
+/**
+ * @author wysha
+ */
+public abstract class AbstractSettings {
     public final String name;
     public final JDialog jDialog;
 
-    protected Settings(String name, JDialog jDialog) {
+    protected AbstractSettings(String name, JDialog jDialog) {
         this.name=name;
         this.jDialog = jDialog;
     }
-    public void onOK(){
+
+    public void onOkay() {
         save();
         jDialog.dispose();
     }
+
+    /**
+     * 取消时的操作
+     */
     public abstract void onCancel();
+
+    /**
+     * 保存操作
+     */
     public abstract void save();
 }

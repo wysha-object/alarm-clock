@@ -1,7 +1,3 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱：wyshazhisishen@yeah.net
- */
 
 package alarm;
 
@@ -17,6 +13,9 @@ import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.HashSet;
 
+/**
+ * @author wysha
+ */
 public class Alarm extends Thread implements Serializable {
     public boolean enable;
     public final String name;
@@ -85,7 +84,9 @@ public class Alarm extends Thread implements Serializable {
                 }
                 if (weekDay == i) {
                     while (true) {
-                        if (dayOfWeek[i]) break;
+                        if (dayOfWeek[i]) {
+                            break;
+                        }
                         now = Calendar.getInstance();
                         weekDay = now.get(Calendar.DAY_OF_WEEK);
                         if (now.getFirstDayOfWeek() == Calendar.SUNDAY) {
@@ -94,11 +95,17 @@ public class Alarm extends Thread implements Serializable {
                                 weekDay = 7;
                             }
                         }
-                        if (weekDay != i) break;
+                        if (weekDay != i) {
+                            break;
+                        }
                     }
                 }
             }
-            while (true) if (enable) break;
+            while (true) {
+                if (enable) {
+                    break;
+                }
+            }
             if (LocalTime.now().getHour() == hour && LocalTime.now().getMinute() == minute) {
                 try {
                     final boolean[] b = {true};
@@ -125,15 +132,27 @@ public class Alarm extends Thread implements Serializable {
                         clip = AudioSystem.getClip();
                         clip.open(AudioSystem.getAudioInputStream(new File(path)));
                         clip.start();
-                        while (true) if (clip.isRunning()) break;
-                        while (true) if (!clip.isRunning()) break;
+                        while (true) {
+                            if (clip.isRunning()) {
+                                break;
+                            }
+                        }
+                        while (true) {
+                            if (!clip.isRunning()) {
+                                break;
+                            }
+                        }
                     } while (enable && b[0]);
                     clip.stop();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             }
-            while (true) if (LocalTime.now().getHour() != hour || LocalTime.now().getMinute() != minute) break;
+            while (true) {
+                if (LocalTime.now().getHour() != hour || LocalTime.now().getMinute() != minute) {
+                    break;
+                }
+            }
         }
     }
 }

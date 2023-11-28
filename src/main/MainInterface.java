@@ -1,7 +1,3 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱：wyshazhisishen@yeah.net
- */
 
 package main;
 
@@ -20,9 +16,12 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.util.HashSet;
 
-import static data.WrittenData.file;
+import static data.WrittenData.FILE;
 import static data.WrittenData.writtenData;
 
+/**
+ * @author wysha
+ */
 public class MainInterface extends JFrame {
     private JPanel jPanel;
     private JPanel left;
@@ -30,9 +29,9 @@ public class MainInterface extends JFrame {
     private JButton add;
     private JButton set;
     private JPanel alarmList;
-    private JLabel rightJLabel;
+    private JLabel rightjlabel;
     private JButton flush;
-    private JLabel leftJLabel;
+    private JLabel leftjlabel;
     GetAlarm[] getAlarms=new GetAlarm[]{};
 
     public static void main(String[] args) {
@@ -42,8 +41,8 @@ public class MainInterface extends JFrame {
     public static MainInterface home=new MainInterface();
     public MainInterface(){
         try {
-            if (file.exists()){
-                WrittenData.writtenData = (WrittenData) new ObjectInputStream(Files.newInputStream(file.toPath())).readObject();
+            if (FILE.exists()) {
+                WrittenData.writtenData = (WrittenData) new ObjectInputStream(Files.newInputStream(FILE.toPath())).readObject();
                 for (Alarm alarm: writtenData.alarms){
                     if (alarm.enable){
                         alarm.start();
@@ -97,28 +96,28 @@ public class MainInterface extends JFrame {
         setLocationRelativeTo(null);
         addWindowListener(new WindowAdapter() {
             @Override
-            public void windowClosing(WindowEvent E) {
+            public void windowClosing(WindowEvent event) {
                 close();
             }
         });
         setStyle();
         setVisible(true);
         add.addActionListener(e -> {
-            Edit ADD = new Edit(null);
-            ADD.setSize(
+            Edit edit = new Edit(null);
+            edit.setSize(
                     (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2,
                     (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2
             );
-            ADD.setVisible(true);
+            edit.setVisible(true);
             flush();
         });
         set.addActionListener(e -> {
-            WrittenSet SET = new WrittenSet();
-            SET.setSize(
+            WrittenSet set = new WrittenSet();
+            set.setSize(
                     (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2,
                     (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2
             );
-            SET.setVisible(true);
+            set.setVisible(true);
             setVisible(false);
             setStyle();
             flush();
@@ -130,14 +129,14 @@ public class MainInterface extends JFrame {
     }
 
     public static void close() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(file.toPath()))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(FILE.toPath()))) {
             oos.writeObject(WrittenData.writtenData);
         } catch (Exception e) {
             ErrorInterface error = new ErrorInterface("无法保存",e,false);
             error.setVisible(true);
             System.exit(1);
         }
-        Prompt prompt = new Prompt("所有数据已保存至" + file.getAbsolutePath());
+        Prompt prompt = new Prompt("所有数据已保存至" + FILE.getAbsolutePath());
         prompt.setVisible(true);
         System.exit(0);
     }
@@ -168,8 +167,8 @@ public class MainInterface extends JFrame {
         jPanels.add(right);
         buttons.add(add);
         buttons.add(set);
-        buttons.add(rightJLabel);
-        buttons.add(leftJLabel);
+        buttons.add(rightjlabel);
+        buttons.add(leftjlabel);
         buttons.add(flush);
         data.Style.setStyle(jPanels,buttons,null);
     }

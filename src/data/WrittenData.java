@@ -1,7 +1,3 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱：wyshazhisishen@yeah.net
- */
 
 package data;
 
@@ -12,8 +8,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author wysha
+ */
 public class WrittenData implements Serializable {
-    public static final File file = new File("AlarmClockData.");
+    public static final File FILE = new File("AlarmClockData.");
     public static WrittenData writtenData = new WrittenData();
     public final List<Alarm> alarms = new ArrayList<>();
     public final Setting setting = new Setting();

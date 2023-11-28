@@ -1,7 +1,3 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱:wyshazhisishen@yeah.net
- */
 
 package data;
 
@@ -10,6 +6,9 @@ import java.awt.*;
 import java.io.Serializable;
 import java.util.HashSet;
 
+/**
+ * @author wysha
+ */
 public final class Style implements Serializable {
     private final String name;
     final Color foreground;

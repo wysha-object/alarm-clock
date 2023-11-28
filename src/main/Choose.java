@@ -1,7 +1,3 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱:wyshazhisishen@yeah.net
- */
 
 package main;
 
@@ -10,29 +6,32 @@ import data.Style;
 import javax.swing.*;
 import java.util.HashSet;
 
+/**
+ * @author wysha
+ */
 public class Choose extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
+    private JButton buttonOkay;
     private JButton buttonCancel;
     private JTextArea textArea;
     private JScrollPane jScrollPane;
     public boolean choose;
 
     public Choose(String s) {
-        setTitle("选择");
         textArea.setText(s);
         textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
         textArea.setEditable(false);
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
-        buttonOK.addActionListener(e -> onOK());
+        getRootPane().setDefaultButton(buttonOkay);
+        buttonOkay.addActionListener(e -> onOkay());
         buttonCancel.addActionListener(e -> onCancel());
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setStyle();
     }
 
-    private void onOK() {
+    private void onOkay() {
         choose=true;
         dispose();
     }
@@ -49,7 +48,7 @@ public class Choose extends JDialog {
         jPanels.add(jScrollPane);
         buttons.add(textArea);
         buttons.add(buttonCancel);
-        buttons.add(buttonOK);
+        buttons.add(buttonOkay);
         Style.setStyle(jPanels,buttons,null);
     }
 }

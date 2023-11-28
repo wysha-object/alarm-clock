@@ -1,7 +1,3 @@
-/*
- * 开发者:熊锦枫
- * 开发者邮箱:wyshazhisishen@yeah.net
- */
 
 package main;
 
@@ -12,6 +8,9 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
 
+/**
+ * @author wysha
+ */
 public class Prompt extends JDialog {
     private JPanel contentPane;
     private JButton buttonOkay;
@@ -20,6 +19,7 @@ public class Prompt extends JDialog {
 
     public Prompt(String prompt) {
         jTextArea.setLineWrap(true);
+        jTextArea.setWrapStyleWord(true);
         jTextArea.setEditable(false);
         jTextArea.setText("提示:\n" + prompt);
         setContentPane(contentPane);
@@ -30,9 +30,9 @@ public class Prompt extends JDialog {
         setAlwaysOnTop(true);
         setSize((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 3, (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 3);
         setLocationRelativeTo(null);
-        buttonOkay.addActionListener(e -> onOK());
+        buttonOkay.addActionListener(e -> onOkay());
         contentPane.registerKeyboardAction(e -> dispose(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-        contentPane.registerKeyboardAction(e -> onOK(), KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        contentPane.registerKeyboardAction(e -> onOkay(), KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
     public void setStyle() {
@@ -45,7 +45,7 @@ public class Prompt extends JDialog {
         Style.setStyle(jPanels,buttons,null);
     }
 
-    private void onOK() {
+    private void onOkay() {
         dispose();
     }
 }
