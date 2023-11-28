@@ -2,26 +2,25 @@
 
 ## 介绍
 
-### 当前版本号:
+### 当前版本号
 
-    0.0.0
+0.0.0
 
-### SDK:
-
+### SDK
 #### JDK8
 
-### 建议的操作系统：
+### 建议的操作系统
 
-    Windows 11
+Windows 11
 
-### 开发工具:
+### 开发工具
 
-    IntelliJ IDEA (Ultimate Edition)
+IntelliJ IDEA (Ultimate Edition)
 
 ## 安装教程
 
-    1.jar包在out/artifacts目录下
+jar包在out/artifacts目录下
 
 ## 参与贡献
 
-    1.wyshazhisishen@yeah.net
+1.wyshazhisishen@yeah.net
