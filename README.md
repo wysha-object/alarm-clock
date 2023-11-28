@@ -14,6 +14,10 @@
 
 Windows 11
 
+### 建议的开发工具
+
+IDEA
+
 ## 安装教程
 
 jar包在out/artifacts目录下
