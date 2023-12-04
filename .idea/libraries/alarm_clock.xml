@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="alarm-clock">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/artifacts/alarm_clock_jar/alarm-clock.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
