@@ -1,5 +1,5 @@
 
-package data;
+package wysha.alarm_clock.data;
 
 import javax.swing.*;
 import java.awt.*;

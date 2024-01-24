@@ -1,7 +1,7 @@
 
-package set.settings;
+package wysha.alarm_clock.set.settings;
 
-import data.Style;
+import wysha.alarm_clock.data.Style;
 
 import javax.swing.*;
 import java.util.HashSet;

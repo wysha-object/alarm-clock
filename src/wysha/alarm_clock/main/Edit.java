@@ -1,7 +1,8 @@
 
-package main;
+package wysha.alarm_clock.main;
 
-import alarm.Alarm;
+import wysha.alarm_clock.alarm.Alarm;
+import wysha.alarm_clock.data.Style;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -143,6 +144,6 @@ public class Edit extends JDialog {
         buttons.add(musicPath);
         buttons.add(buttonOkay);
         buttons.add(buttonCancel);
-        data.Style.setStyle(jPanels,buttons,null);
+        Style.setStyle(jPanels,buttons,null);
     }
 }

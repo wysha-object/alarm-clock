@@ -1,11 +1,11 @@
 
-package main;
+package wysha.alarm_clock.main;
 
-import alarm.Alarm;
-import data.Setting;
-import data.Style;
-import data.WrittenData;
-import set.WrittenSet;
+import wysha.alarm_clock.alarm.Alarm;
+import wysha.alarm_clock.data.Setting;
+import wysha.alarm_clock.data.Style;
+import wysha.alarm_clock.data.WrittenData;
+import wysha.alarm_clock.set.WrittenSet;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,9 +15,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.util.HashSet;
-
-import static data.WrittenData.FILE;
-import static data.WrittenData.writtenData;
 
 /**
  * @author wysha
@@ -41,43 +38,43 @@ public class MainInterface extends JFrame {
     public static MainInterface home=new MainInterface();
     public MainInterface(){
         try {
-            if (FILE.exists()) {
-                WrittenData.writtenData = (WrittenData) new ObjectInputStream(Files.newInputStream(FILE.toPath())).readObject();
-                for (Alarm alarm: writtenData.alarms){
+            if (WrittenData.FILE.exists()) {
+                WrittenData.writtenData = (WrittenData) new ObjectInputStream(Files.newInputStream(WrittenData.FILE.toPath())).readObject();
+                for (Alarm alarm: WrittenData.writtenData.alarms){
                     if (alarm.enable){
                         alarm.start();
                     }
                 }
             }else {
-                writtenData.styles[0]=new data.Style(
+                WrittenData.writtenData.styles[0]=new Style(
                         "炫酷白",
                         new Color(0,0,0),
                         new Color(251,251,251),
                         new Color(255,255,255),
                         new Font("Microsoft YaHei UI Light",Font.PLAIN,14)
                 );
-                writtenData.styles[1]=new data.Style(
+                WrittenData.writtenData.styles[1]=new Style(
                         "酷炫黑",
                         new Color(255,255,255),
                         new Color(31,31,31),
                         new Color(0,0,0),
                         new Font("Microsoft YaHei UI Light",Font.PLAIN,14)
                 );
-                writtenData.styles[2]=new data.Style(
+                WrittenData.writtenData.styles[2]=new Style(
                         "酷炫灰",
                         new Color(255,255,255),
                         new Color(63,63,63),
                         new Color(127,127,127),
                         new Font("Microsoft YaHei UI Light",Font.PLAIN,14)
                 );
-                writtenData.styles[3]=new Style(
+                WrittenData.writtenData.styles[3]=new Style(
                         "高对比度",
                         Color.WHITE,
                         Color.BLACK,
                         Color.BLACK,
                         null
                 );
-                Setting.setStyle(writtenData.styles[0]);
+                Setting.setStyle(WrittenData.writtenData.styles[0]);
             }
         } catch (Throwable e) {
             new ErrorInterface(
@@ -86,7 +83,7 @@ public class MainInterface extends JFrame {
                     false
             ).setVisible(true);
         }
-        alarmList.setLayout(new GridLayout(-1,1));
+        alarmList.setLayout(new GridLayout((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()/100),1));
         setTitle("闹钟1.0");
         setContentPane(jPanel);
         setSize(
@@ -129,14 +126,14 @@ public class MainInterface extends JFrame {
     }
 
     public static void close() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(FILE.toPath()))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(WrittenData.FILE.toPath()))) {
             oos.writeObject(WrittenData.writtenData);
         } catch (Exception e) {
             ErrorInterface error = new ErrorInterface("无法保存",e,false);
             error.setVisible(true);
             System.exit(1);
         }
-        Prompt prompt = new Prompt("所有数据已保存至" + FILE.getAbsolutePath());
+        Prompt prompt = new Prompt("所有数据已保存至" + WrittenData.FILE.getAbsolutePath());
         prompt.setVisible(true);
         System.exit(0);
     }
@@ -170,6 +167,6 @@ public class MainInterface extends JFrame {
         buttons.add(rightjlabel);
         buttons.add(leftjlabel);
         buttons.add(flush);
-        data.Style.setStyle(jPanels,buttons,null);
+        Style.setStyle(jPanels,buttons,null);
     }
 }

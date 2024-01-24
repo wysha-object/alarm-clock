@@ -1,5 +1,5 @@
 
-package data;
+package wysha.alarm_clock.data;
 
 import java.awt.*;
 import java.io.Serializable;

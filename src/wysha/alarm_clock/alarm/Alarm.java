@@ -1,8 +1,8 @@
 
-package alarm;
+package wysha.alarm_clock.alarm;
 
-import data.Style;
-import data.WrittenData;
+import wysha.alarm_clock.data.Style;
+import wysha.alarm_clock.data.WrittenData;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;

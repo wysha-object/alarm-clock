@@ -1,8 +1,9 @@
 
-package main;
+package wysha.alarm_clock.main;
 
-import alarm.Alarm;
-import data.WrittenData;
+import wysha.alarm_clock.data.Style;
+import wysha.alarm_clock.data.WrittenData;
+import wysha.alarm_clock.alarm.Alarm;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,6 +47,6 @@ public class GetAlarm extends JPanel {
         buttons.add(checkBox);
         buttons.add(edit);
         buttons.add(delete);
-        data.Style.setStyle(jPanels,buttons,null);
+        Style.setStyle(jPanels,buttons,null);
     }
 }

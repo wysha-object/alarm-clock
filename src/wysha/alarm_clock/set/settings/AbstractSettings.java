@@ -1,5 +1,5 @@
 
-package set.settings;
+package wysha.alarm_clock.set.settings;
 
 import javax.swing.*;
 

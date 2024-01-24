@@ -1,11 +1,11 @@
 
-package set;
+package wysha.alarm_clock.set;
 
-import data.Style;
-import main.Choose;
-import set.settings.AbstractSettings;
-import set.settings.AppearanceSetting;
-import set.settings.DefaultPage;
+import wysha.alarm_clock.data.Style;
+import wysha.alarm_clock.set.settings.AbstractSettings;
+import wysha.alarm_clock.set.settings.AppearanceSetting;
+import wysha.alarm_clock.set.settings.DefaultPage;
+import wysha.alarm_clock.main.Choose;
 
 import javax.swing.*;
 import java.awt.*;
