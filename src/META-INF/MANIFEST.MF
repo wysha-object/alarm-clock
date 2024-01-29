@@ -1,3 +1,0 @@
-Manifest-Version: 1.0.1
-Main-Class: wysha.alarm_clock.main.MainInterface
-
