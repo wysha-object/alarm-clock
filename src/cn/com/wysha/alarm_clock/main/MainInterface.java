@@ -41,9 +41,7 @@ public class MainInterface extends JFrame {
             if (WrittenData.FILE.exists()) {
                 WrittenData.writtenData = (WrittenData) new ObjectInputStream(Files.newInputStream(WrittenData.FILE.toPath())).readObject();
                 for (Alarm alarm: WrittenData.writtenData.alarms){
-                    if (alarm.enable){
-                        alarm.start();
-                    }
+                    alarm.start();
                 }
             }else {
                 WrittenData.writtenData.styles[0]=new Style(
@@ -84,7 +82,7 @@ public class MainInterface extends JFrame {
             ).setVisible(true);
         }
         alarmList.setLayout(new GridLayout((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()/100),1));
-        setTitle("闹钟1.0.2");
+        setTitle("闹钟1.0.3");
         setContentPane(jPanel);
         setSize(
                 (int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()*2/3),

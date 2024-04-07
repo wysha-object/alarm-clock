@@ -6,11 +6,14 @@
 
 #### 当前版本号
 
-##### 1.0.2
+##### 1.0.3
 
 ### SDK
 
-#### JDK8
+#### java version "22" 2024-03-19
+
+##### Java(TM) SE Runtime Environment Oracle GraalVM 22+36.1 (build 22+36-jvmci-b02)
+##### Java HotSpot(TM) 64-Bit Server VM Oracle GraalVM 22+36.1 (build 22+36-jvmci-b02, mixed mode, sharing)
 
 ## 建议的操作系统
 

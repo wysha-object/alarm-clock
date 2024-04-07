@@ -51,19 +51,14 @@ public class Alarm extends Thread implements Serializable {
                         "   响铃时间:" + hour + "时" + minute + "分" +
                         "   响铃音乐：" + new File(path).getName()
         );
-        boolean first = true;
+        s.append(
+                "   每周重复："
+        );
         for (int i = 0; i < dayOfWeek.length; i++) {
             if (dayOfWeek[i]) {
-                if (first) {
-                    first = false;
-                    s.append(
-                            "   每周重复："
-                    );
-                } else {
-                    s.append(",");
-                }
+                s.append("       ");
                 i++;
-                s.append("星期").append(i);
+                s.append(i);
                 i--;
             }
         }
