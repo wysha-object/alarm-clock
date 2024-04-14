@@ -1,3 +1,2 @@
-Manifest-Version: 1.0
 Main-Class: cn.com.wysha.alarm_clock.main.MainInterface
 

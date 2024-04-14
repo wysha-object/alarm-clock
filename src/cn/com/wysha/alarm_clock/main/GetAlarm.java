@@ -23,11 +23,11 @@ public class GetAlarm extends JPanel {
         checkBox.setSelected(alarm.enable);
         add(contentPane);
         jLabel.setText(alarm.toString());
-        delete.addActionListener(e -> {
+        delete.addActionListener(_ -> {
             WrittenData.writtenData.alarms.remove(alarm);
             MainInterface.home.flush();
         });
-        edit.addActionListener(e -> {
+        edit.addActionListener(_ -> {
             Edit j = new Edit(alarm);
             j.setSize(
                     (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2,

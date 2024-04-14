@@ -100,14 +100,6 @@
           <text value="开发者邮箱:wyshazhisishen@yeah.net"/>
         </properties>
       </component>
-      <component id="2b2e9" class="javax.swing.JLabel" binding="leftjlabel">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="版本号:1.0.3"/>
-        </properties>
-      </component>
     </children>
   </grid>
 </form>

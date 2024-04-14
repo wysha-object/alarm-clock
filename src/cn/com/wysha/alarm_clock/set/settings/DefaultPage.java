@@ -12,7 +12,6 @@ import java.util.HashSet;
 public class DefaultPage extends AbstractSettings {
     public JPanel contentPane;
     private JLabel jLabel;
-    private JLabel down;
 
     public DefaultPage(JDialog jDialog) {
         super(DefaultPage.class.toString(),jDialog);
@@ -33,7 +32,6 @@ public class DefaultPage extends AbstractSettings {
         HashSet<JComponent> buttons = new HashSet<>();
         jPanels.add(contentPane);
         buttons.add(jLabel);
-        buttons.add(down);
         Style.setStyle(jPanels,buttons,null);
     }
 }

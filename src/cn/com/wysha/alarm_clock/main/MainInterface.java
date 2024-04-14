@@ -28,7 +28,6 @@ public class MainInterface extends JFrame {
     private JPanel alarmList;
     private JLabel rightjlabel;
     private JButton flush;
-    private JLabel leftjlabel;
     GetAlarm[] getAlarms=new GetAlarm[]{};
 
     public static void main(String[] args) {
@@ -82,7 +81,7 @@ public class MainInterface extends JFrame {
             ).setVisible(true);
         }
         alarmList.setLayout(new GridLayout((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()/100),1));
-        setTitle("闹钟1.0.3");
+        setTitle("闹钟");
         setContentPane(jPanel);
         setSize(
                 (int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()*2/3),
@@ -131,7 +130,7 @@ public class MainInterface extends JFrame {
             error.setVisible(true);
             System.exit(1);
         }
-        Prompt prompt = new Prompt("所有数据已保存至" + WrittenData.FILE.getAbsolutePath());
+        Prompt prompt = new Prompt("所有数据已保存至"+WrittenData.FILE.getAbsolutePath());
         prompt.setVisible(true);
         System.exit(0);
     }
@@ -163,7 +162,6 @@ public class MainInterface extends JFrame {
         buttons.add(add);
         buttons.add(set);
         buttons.add(rightjlabel);
-        buttons.add(leftjlabel);
         buttons.add(flush);
         Style.setStyle(jPanels,buttons,null);
     }

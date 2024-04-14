@@ -68,38 +68,34 @@ public class Alarm extends Thread implements Serializable {
     @Override
     public void run() {
         while (WrittenData.writtenData.alarms.contains(this)) {
-            for (int i = 0; i < dayOfWeek.length; i++) {
+            while (true) {
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                if (enable) {
+                    break;
+                }
+            }
+            int weekDay;
+            do {
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 Calendar now = Calendar.getInstance();
-                int weekDay = now.get(Calendar.DAY_OF_WEEK);
+                weekDay = now.get(Calendar.DAY_OF_WEEK);
                 if (now.getFirstDayOfWeek() == Calendar.SUNDAY) {
                     weekDay = weekDay - 1;
                     if (weekDay == 0) {
                         weekDay = 7;
                     }
                 }
-                if (weekDay == i) {
-                    while (true) {
-                        if (dayOfWeek[i]) {
-                            break;
-                        }
-                        now = Calendar.getInstance();
-                        weekDay = now.get(Calendar.DAY_OF_WEEK);
-                        if (now.getFirstDayOfWeek() == Calendar.SUNDAY) {
-                            weekDay = weekDay - 1;
-                            if (weekDay == 0) {
-                                weekDay = 7;
-                            }
-                        }
-                        if (weekDay != i) {
-                            break;
-                        }
-                    }
-                }
-            }
-            while (true) {
-                if (enable) {
-                    break;
-                }
+            } while (!dayOfWeek[weekDay]);
+            if (!WrittenData.writtenData.alarms.contains(this)){
+                break;
             }
             if (LocalTime.now().getHour() == hour && LocalTime.now().getMinute() == minute) {
                 try {
@@ -107,13 +103,13 @@ public class Alarm extends Thread implements Serializable {
                     JFrame jFrame = new JFrame(name);
                     jFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
                     jFrame.setLocationRelativeTo(null);
-                    JButton button=new JButton("关闭闹钟"+name);
-                    button.addActionListener(e -> {
+                    JButton button = new JButton("关闭闹钟" + name);
+                    button.addActionListener(_ -> {
                         b[0] = false;
                         clip.stop();
                         jFrame.dispose();
                     });
-                    JPanel jPanel=new JPanel();
+                    JPanel jPanel = new JPanel();
                     jPanel.add(button);
                     jFrame.setContentPane(jPanel);
                     jFrame.pack();
@@ -121,9 +117,14 @@ public class Alarm extends Thread implements Serializable {
                     HashSet<JComponent> buttons = new HashSet<>();
                     jPanels.add(jPanel);
                     buttons.add(button);
-                    Style.setStyle(jPanels,buttons,null);
+                    Style.setStyle(jPanels, buttons, null);
                     jFrame.setVisible(true);
                     do {
+                        try {
+                            sleep(1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
                         clip = AudioSystem.getClip();
                         clip.open(AudioSystem.getAudioInputStream(new File(path)));
                         clip.start();
@@ -144,6 +145,11 @@ public class Alarm extends Thread implements Serializable {
                 }
             }
             while (true) {
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 if (LocalTime.now().getHour() != hour || LocalTime.now().getMinute() != minute) {
                     break;
                 }
