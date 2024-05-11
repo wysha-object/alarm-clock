@@ -87,11 +87,9 @@ public class Alarm extends Thread implements Serializable {
                 }
                 Calendar now = Calendar.getInstance();
                 weekDay = now.get(Calendar.DAY_OF_WEEK);
-                if (now.getFirstDayOfWeek() == Calendar.SUNDAY) {
-                    weekDay = weekDay - 1;
-                    if (weekDay == 0) {
-                        weekDay = 6;
-                    }
+                weekDay = weekDay - 1;
+                if (weekDay == 0) {
+                    weekDay = 6;
                 }
             } while (!dayOfWeek[weekDay]);
             if (!WrittenData.writtenData.alarms.contains(this)){
