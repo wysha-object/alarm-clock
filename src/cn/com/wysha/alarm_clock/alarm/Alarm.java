@@ -90,7 +90,7 @@ public class Alarm extends Thread implements Serializable {
                 if (now.getFirstDayOfWeek() == Calendar.SUNDAY) {
                     weekDay = weekDay - 1;
                     if (weekDay == 0) {
-                        weekDay = 7;
+                        weekDay = 6;
                     }
                 }
             } while (!dayOfWeek[weekDay]);
